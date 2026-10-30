@@ -1,0 +1,22 @@
+# Ejemplo del servidor de desarrollo. Para otra máquina, generar la unidad con
+# python3 infra/configurar-spawn.py desde la raíz del proyecto.
+[Unit]
+Description=SGLAB - Ingesta de reportes TOML
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=facu
+SupplementaryGroups=docker sglab-ingest
+WorkingDirectory=/home/facu/-TD2_SGLAB/SGLAB
+Environment=SGLAB_DATA_DIR=/home/facu/-TD2_SGLAB/SGLAB/var
+Environment=SGLAB_TOMLQ=/home/facu/-TD2_SGLAB/SGLAB/.venv/bin/tomlq
+ExecStart=/usr/bin/bash /home/facu/-TD2_SGLAB/SGLAB/server/bin/spawn.sh
+Restart=on-failure
+RestartSec=5
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

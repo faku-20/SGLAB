@@ -1,0 +1,7 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.sglab-infra.done
+var/
+server/web/app/vendor/
