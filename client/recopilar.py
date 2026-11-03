@@ -401,7 +401,7 @@ def argumentos():
     parser.add_argument('--probar-puerto', type=int, default=8080)
     parser.add_argument('--servidor', help='Servidor SSH (hostname o IPv4); omitir para solo recopilar')
     parser.add_argument('--usuario', help='Usuario SSH receptor')
-    parser.add_argument('--directorio-remoto', default='/home/facu/-TD2_SGLAB/SGLAB/var/incoming')
+    parser.add_argument('--directorio-remoto', default='/srv/sglab/incoming')
     parser.add_argument('--puerto-ssh', type=int, default=22)
     parser.add_argument('--clave', help='Ruta de la clave privada SSH; nunca guardar contraseñas')
     parser.add_argument('--known-hosts', help='Archivo con clave de host verificada previamente')

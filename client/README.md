@@ -59,6 +59,10 @@ El receptor necesita SCP/SFTP, SSH y permiso para ejecutar `chmod` y `mv` en
 incoming. No funciona con una cuenta limitada exclusivamente a internal-sftp.
 El host remoto configurado debe ser un hostname o IPv4 y el directorio remoto
 una ruta absoluta sin espacios. El servidor debe tener incoming creado previamente.
+La ruta predeterminada es `/srv/sglab/incoming`; ajustarla con
+`--directorio-remoto`, `directorio_remoto` en el JSON o el perfil para que coincida
+con la carpeta de recepción real del servidor. Esta ruta pertenece al servidor,
+no a la PC que ejecuta el recolector.
 
 El usuario de carga y el del daemon pueden ser distintos, compartiendo un grupo.
 Por ejemplo, con usuarios `sglab_upload` y `sglab` ya creados y un grupo compartido
@@ -68,7 +72,7 @@ Por ejemplo, con usuarios `sglab_upload` y `sglab` ya creados y un grupo compart
 sudo usermod -aG sglab-ingest sglab_upload
 sudo usermod -aG sglab-ingest sglab
 sudo install -d -m 0750 -o sglab -g sglab-ingest /srv/sglab
-sudo install -d -m 2770 -o sglab -g sglab-ingest /home/facu/-TD2_SGLAB/SGLAB/var/incoming
+sudo install -d -m 2770 -o sglab -g sglab-ingest /srv/sglab/incoming
 ```
 
 Crear previamente el grupo si no existe. Reiniciar el daemon y abrir una nueva

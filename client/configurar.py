@@ -226,7 +226,8 @@ def main():
             ('servidor', 'IP o nombre del servidor', None),
             ('usuario', 'Usuario SSH receptor', None),
             ('puerto_ssh', 'Puerto SSH', 22),
-            ('directorio_remoto', 'Carpeta de recepción', '/home/facu/-TD2_SGLAB/SGLAB/var/incoming'),
+            # Ruta del servidor; se puede cambiar con --directorio-remoto o --perfil.
+            ('directorio_remoto', 'Carpeta de recepción', '/srv/sglab/incoming'),
             ('laboratorio', 'Etiqueta del laboratorio', 'LAB01'),
         ):
             valor = getattr(args, campo)
